@@ -1,0 +1,43 @@
+<div class="container">
+    <div>
+    <h2>Modifier un Produit Cosmétique:</h2>
+    </div>
+    <form >
+    <div class="col-sm-4 col-md-4 col-lg-4">
+    <label >ID Produit Cosmétique</label>
+    <input readonly type="text" [(ngModel)]="currentCosmetique.idCosmetique"
+    name="idCosmetique" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom Produit Cosmétique</label>
+    <input type="text"[(ngModel)]= "currentCosmetique.nomCosmetique"
+    name="nomCosmetique" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+    <label >Prix Produit Cosmétique</label>
+    <input type="number" [(ngModel)]= "currentCosmetique.prixCosmetique"
+    name="prixCosmetique" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date création</label>
+
+<input type="date" [ngModel]="currentCosmetique.dateCreation | date: 'yyyy-MM-dd'"
+(ngModelChange)=" currentCosmetique.dateCreation= $event" name="dateCreation"
+class="form-control">
+</div>
+<div class="col-sm-4 col-md-4 col-lg-4">
+    <select class="form-control form-control-lg" id="idRay" name="idRay"
+    [(ngModel)]="updatedRayId">
+    <option *ngFor="let ray of rayons" [value]="ray.idRay" >
+    {{ray.nomRay}}
+    </option>
+    </select>
+    </div>
+<div class="mt-2">
+
+<button type="submit" (click)="UpdateCosmetique()" class="btn btn-success">Modifer</button>
+
+</div>
+</form>
+
+</div>
